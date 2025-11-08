@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - FormDock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 min-h-screen">
+
+  <!-- Navbar -->
+  <nav class="p-5 bg-white shadow flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-gray-800">FormDock</h1>
+    <div class="flex items-center gap-4">
+      <p id="username" class="text-gray-600 font-medium"></p>
+      <button id="logout" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg flex items-center gap-1">
+        <i class="ri-logout-box-line"></i> Logout
+      </button>
+    </div>
+  </nav>
+
+  <!-- Dashboard -->
+  <div class="max-w-5xl mx-auto p-8">
+    <h2 class="text-3xl font-semibold mb-6">Your Forms</h2>
+
+    <!-- Create Form -->
+    <form id="create-form" class="flex gap-4 mb-6">
+      <input
+        name="title"
+        placeholder="Enter form title..."
+        required
+        class="px-4 py-3 rounded-lg border border-gray-300 focus:border-gray-600 outline-none flex-1 bg-white shadow-sm"
+      />
+      <button
+        type="submit"
+        class="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg shadow"
+      >
+        <i class="ri-add-line text-lg"></i> Create
+      </button>
+    </form>
+
+    <!-- Forms List -->
+    <div id="forms-list" class="grid gap-4"></div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 right-6 hidden bg-black text-white px-4 py-2 rounded-lg text-sm shadow-lg"></div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    gsap.from("h2", { opacity: 0, y: 20, duration: 0.6 });
+  </script>
+</body>
+</html>
