@@ -1,5 +1,5 @@
 const API = "https://formdock.onrender.com/api/forms";
-const baseURL = "https://formdock.onrender.com/";
+const baseURL = "https://formdock.onrender.com";
 
 const userId = localStorage.getItem("userId");
 const username = localStorage.getItem("username");
@@ -124,5 +124,6 @@ async function loadForms() {
 }
 
 loadForms();
+
 
 
