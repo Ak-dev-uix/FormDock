@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api/auth";
+const API = "https://formdock.vercel.app/api/auth";
 
 const signupForm = document.getElementById("signup-form");
 const loginForm = document.getElementById("login-form");
@@ -64,7 +64,6 @@ if (loginForm) {
 
       const json = await res.json();
       if (res.ok) {
-        // ✅ Save userId and username for form creation and display
         localStorage.setItem("userId", json.userId);
         localStorage.setItem("username", json.username);
         alert("✅ Login successful!");
