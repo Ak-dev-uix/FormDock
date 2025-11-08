@@ -1,4 +1,6 @@
-const API = "http://localhost:5000/api/forms";
+const API = "https://formdock.vercel.app/api/forms";
+const baseURL = "https://formdock.vercel.app";
+
 const userId = localStorage.getItem("userId");
 const username = localStorage.getItem("username");
 
@@ -92,7 +94,7 @@ async function loadForms() {
     }
 
     json.forEach((f) => {
-      const url = `http://localhost:5000/api/forms/${f.id}/submit`;
+      const url = `${baseURL}/api/forms/${f.id}/submit`;
 
       const div = document.createElement("div");
       div.className =
