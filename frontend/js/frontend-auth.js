@@ -1,4 +1,4 @@
-const API = "https://formdock.vercel.app/api/auth";
+const API = "https://formdock.onrender.com/api/auth";
 
 const signupForm = document.getElementById("signup-form");
 const loginForm = document.getElementById("login-form");
