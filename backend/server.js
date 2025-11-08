@@ -46,29 +46,22 @@ app.get("/dashboard", (req, res) => {
   res.sendFile(join(__dirname, "../frontend", "dashboard.html"));
 });
 
-// Catch-all (for direct link refresh)
+// Catch-all for direct link refresh
 app.get("*", (req, res) => {
   res.sendFile(join(__dirname, "../frontend", "index.html"));
 });
 
-// Initialize DB before export (Vercel way)
-let dbReady = false;
+// ✅ Initialize DB before starting server
 initDB()
   .then(() => {
     console.log("✅ Database initialized successfully");
-    dbReady = true;
+
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    });
   })
   .catch((err) => {
-    console.error("❌ Database init failed:", err);
+    console.error("❌ Database initialization failed:", err);
+    process.exit(1);
   });
-
-// ✅ Export app instead of app.listen (for Vercel)
-export default app;
-
-// ✅ Local run support (only when run manually)
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running locally at http://localhost:${PORT}`);
-  });
-}
